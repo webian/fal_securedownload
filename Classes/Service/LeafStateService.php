@@ -94,7 +94,7 @@ class LeafStateService implements SingletonInterface
     {
         $folderStates = $user->getKey($user->user['uid'] ? 'user' : 'ses', 'LeafStateService');
         if ($folderStates) {
-            $folderStates = unserialize($folderStates);
+            $folderStates = unserialize($folderStates, ['allowed_classes' => false]);
         }
         if (!is_array($folderStates)) {
             $folderStates = [];
